@@ -11,4 +11,25 @@ public class BagServiceImpl implements BagService{
         BagRepo bagRepo = new BagRepoImpl();
         bagRepo.save(bagEntity);
     }
+
+    @Override
+    public BagEntity getBagEntityById(int id) {
+        BagRepo bagRepo = new BagRepoImpl();
+        bagRepo.getBagEntityById(id);
+        return null;
+    }
+
+    @Override
+    public boolean updateBagEntityById(int id, String brand) {
+        BagRepo bagRepo = new BagRepoImpl();
+        bagRepo.updateBagEntityById(id,brand);
+        return false;
+    }
+
+    @Override
+    public void deleteBagEntityById(int id) {
+        BagRepo bagRepo = new BagRepoImpl();
+        bagRepo.deleteBagEntityById(id);
+
+    }
 }
