@@ -6,4 +6,11 @@ import com.xworkz.bucket.service.BucketServiceImpl;
 public interface BucketRepo {
 
     void save(BucketEntity bucketEntity);
+
+    BucketEntity getBucketEntityById(int id);
+
+    boolean uodateBucketEntityById(int id,String material);
+
+    void deleteBucketEntityById(int id);
+
 }
