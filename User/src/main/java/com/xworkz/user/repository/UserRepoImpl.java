@@ -304,4 +304,253 @@ public class UserRepoImpl implements UserRepo{
         }
         return userEntities;
     }
+
+    @Override
+    public String getNameByAge(int age) {
+        System.out.println("Repo.....");
+
+        EntityManagerFactory entityManagerFactory = null;
+        EntityManager entityManager=null;
+        EntityTransaction entityTransaction =null;
+       String name=null;
+
+        try{
+            entityManagerFactory=Persistence.createEntityManagerFactory("user");
+            entityManager=entityManagerFactory.createEntityManager();
+            entityTransaction=entityManager.getTransaction();
+
+            entityTransaction.begin();
+
+           Query query = entityManager.createNamedQuery("getByNameByage");
+           query.setParameter("ageBy",age);
+           name =(String)  query.getSingleResult();
+
+
+
+          entityTransaction.commit();
+        }catch (Exception e){
+            if(entityTransaction.isActive()){
+                entityTransaction.rollback();
+            }
+        }finally {
+            entityManager.close();
+        }
+        return name;
+    }
+
+    @Override
+    public UserEntity getByNameAndPlaceByAge(int age) {
+        System.out.println("Repo.....");
+
+        EntityManagerFactory entityManagerFactory = null;
+        EntityManager entityManager=null;
+        EntityTransaction entityTransaction =null;
+        UserEntity userEntities=null;
+
+        try{
+            entityManagerFactory=Persistence.createEntityManagerFactory("user");
+            entityManager=entityManagerFactory.createEntityManager();
+            entityTransaction=entityManager.getTransaction();
+
+            entityTransaction.begin();
+
+            Query query = entityManager.createNamedQuery("getByNameAndPlaceByAge");
+            query.setParameter("ageBy",age);
+           Object[] objects =(Object[]) query.getSingleResult();
+            System.out.println("-----------");
+           String name = (String) objects[0];
+          String place =(String) objects[1];
+
+
+            System.out.println("name "+name);
+            System.out.println("Place "+place);
+            entityTransaction.commit();
+
+
+
+        }catch (Exception e){
+            if(entityTransaction.isActive()){
+                entityTransaction.rollback();
+            }
+        }finally {
+            entityManager.close();
+        }
+
+
+        return userEntities;
+    }
+
+    @Override
+    public UserEntity getByNameAndPhoneByPlace(String place) {
+        System.out.println("Repo.....");
+
+        EntityManagerFactory entityManagerFactory = null;
+        EntityManager entityManager=null;
+        EntityTransaction entityTransaction =null;
+        UserEntity userEntities=null;
+
+        try{
+            entityManagerFactory=Persistence.createEntityManagerFactory("user");
+            entityManager=entityManagerFactory.createEntityManager();
+            entityTransaction=entityManager.getTransaction();
+
+            entityTransaction.begin();
+
+            Query query = entityManager.createNamedQuery("getByNameAndPhoneByPlace");
+            query.setParameter("placeBy",place);
+            Object[] objects =(Object[]) query.getSingleResult();
+
+            String name = (String) objects[0];
+            Long PhoneNumber =(Long) objects[1];
+
+            System.out.println("name "+name);
+            System.out.println("PhoneNumber" + PhoneNumber);
+            entityTransaction.commit();
+
+
+
+        }catch (Exception e){
+            if(entityTransaction.isActive()){
+                entityTransaction.rollback();
+            }
+        }finally {
+            entityManager.close();
+        }
+
+
+        return userEntities;
+    }
+
+    @Override
+    public List<String> getLastNameAgeAbove25() {
+        EntityManagerFactory entityManagerFactory =null;
+        EntityManager entityManager = null;
+        EntityTransaction entityTransaction =null;
+        List<String> lastname =null;
+        try{
+            entityManagerFactory =Persistence.createEntityManagerFactory("user");
+            entityManager =entityManagerFactory.createEntityManager();
+            entityTransaction=entityManager.getTransaction();
+
+            entityTransaction.begin();
+
+        Query query =    entityManager.createNamedQuery("getLastNameAgeAbove25");
+          lastname = query.getResultList();
+
+
+          entityTransaction.commit();
+        }catch (Exception e){
+            if(entityTransaction.isActive()){
+                entityTransaction.rollback();
+            }
+        }finally {
+            entityManager.close();
+        }
+
+        return lastname ;
+    }
+
+    @Override
+    public List<Long> getPhoneByAgeBetween20And30() {
+        EntityManagerFactory entityManagerFactory =null;
+        EntityManager entityManager = null;
+        EntityTransaction entityTransaction =null;
+        List<Long> phoneNumber =null;
+        try{
+            entityManagerFactory =Persistence.createEntityManagerFactory("user");
+            entityManager =entityManagerFactory.createEntityManager();
+            entityTransaction=entityManager.getTransaction();
+
+            entityTransaction.begin();
+
+            Query query =    entityManager.createNamedQuery("getPhoneByAgeBetween20And30");
+            phoneNumber= query.getResultList();
+
+
+            entityTransaction.commit();
+        }catch (Exception e){
+            if(entityTransaction.isActive()){
+                entityTransaction.rollback();
+            }
+        }finally {
+            entityManager.close();
+        }
+
+        return phoneNumber ;
+    }
+
+    @Override
+    public UserEntity getNameAndPlaceByEmail(String email) {
+        System.out.println("Repo.....");
+
+        EntityManagerFactory entityManagerFactory = null;
+        EntityManager entityManager=null;
+        EntityTransaction entityTransaction =null;
+        UserEntity userEntities =null;
+
+        try{
+            entityManagerFactory=Persistence.createEntityManagerFactory("user");
+            entityManager=entityManagerFactory.createEntityManager();
+            entityTransaction=entityManager.getTransaction();
+
+            entityTransaction.begin();
+
+            Query query = entityManager.createNamedQuery("getNameAndPlaceByEmail");
+            query.setParameter("emailBy",email);
+            Object[] objects =(Object[]) query.getSingleResult();
+            System.out.println("-----------");
+            String name = (String) objects[0];
+            String place =(String) objects[1];
+
+
+            System.out.println("name "+name);
+            System.out.println("Place "+place);
+            entityTransaction.commit();
+
+
+
+        }catch (Exception e){
+            if(entityTransaction.isActive()){
+                entityTransaction.rollback();
+            }
+        }finally {
+            entityManager.close();
+        }
+
+
+        return userEntities;
+    }
+
+    @Override
+    public String getEmailByPhone(Long phoneNo) {
+        System.out.println("Repo.....");
+
+        EntityManagerFactory entityManagerFactory = null;
+        EntityManager entityManager=null;
+        EntityTransaction entityTransaction =null;
+        String email=null;
+
+        try{
+            entityManagerFactory=Persistence.createEntityManagerFactory("user");
+            entityManager=entityManagerFactory.createEntityManager();
+            entityTransaction=entityManager.getTransaction();
+
+            entityTransaction.begin();
+
+            Query query = entityManager.createNamedQuery("getEmailByPhone");
+            query.setParameter("phone",phoneNo);
+            email =(String)  query.getSingleResult();
+
+
+
+            entityTransaction.commit();
+        }catch (Exception e){
+            if(entityTransaction.isActive()){
+                entityTransaction.rollback();
+            }
+        }finally {
+            entityManager.close();
+        }
+        return email;
+    }
 }

@@ -24,5 +24,17 @@ public interface UserService {
 
    UserEntity getByPhone(long phone);
 
+   String getNameByAge(int age);
 
+   UserEntity getByNameAndPlaceByAge(int age);
+
+   UserEntity getByNameAndPhoneByPlace(String place);
+
+   List<String> getLastNameAgeAbove25();
+
+   List<Long> getPhoneByAgeBetween20And30();
+
+  UserEntity  getNameAndPlaceByEmail(String email);
+
+  String getEmailByPhone(Long phoneNo);
 }

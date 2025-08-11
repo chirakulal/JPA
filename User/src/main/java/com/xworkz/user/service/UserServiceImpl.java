@@ -59,4 +59,39 @@ public class UserServiceImpl implements UserService{
     public UserEntity getByPhone(long phone) {
         return new UserRepoImpl().getByPhone(phone);
     }
+
+    @Override
+    public String getNameByAge(int age) {
+        return new UserRepoImpl().getNameByAge(age);
+    }
+
+    @Override
+    public UserEntity getByNameAndPlaceByAge(int age) {
+        return new UserRepoImpl().getByNameAndPlaceByAge(age);
+    }
+
+    @Override
+    public UserEntity getByNameAndPhoneByPlace(String place) {
+        return new UserRepoImpl().getByNameAndPhoneByPlace(place);
+    }
+
+    @Override
+    public List<String> getLastNameAgeAbove25() {
+        return new UserRepoImpl().getLastNameAgeAbove25();
+    }
+
+    @Override
+    public List<Long> getPhoneByAgeBetween20And30() {
+        return new UserRepoImpl().getPhoneByAgeBetween20And30();
+    }
+
+    @Override
+    public UserEntity getNameAndPlaceByEmail(String email) {
+        return new UserRepoImpl().getNameAndPlaceByEmail(email);
+    }
+
+    @Override
+    public String getEmailByPhone(Long phoneNo) {
+        return new UserRepoImpl().getEmailByPhone(phoneNo);
+    }
 }

@@ -22,16 +22,16 @@ public class UserRunner {
         list.add(new UserEntity("Neha", "Verma", "Kolkata", 26, "neha.verma@gmail.com", 9765412345L, "Female"));
         list.add(new UserEntity("Ajay", "Mishra", "Lucknow", 29, "ajay.mishra@gmail.com", 9998887776L, "Male"));
         list.add(new UserEntity("Pooja", "Singh", "Patna", 24, "pooja.singh@gmail.com", 9012345698L, "Female"));
-        list.add(new UserEntity("Suraj", "Bhat", "Srinagar", 33, "suraj.bhat@gmail.com", 9876123450L, "Male"));
-        list.add(new UserEntity("Anjali", "Desai", "Surat", 22, "anjali.desai@gmail.com", 9876109876L, "Female"));
-        list.add(new UserEntity("Manish", "Dube", "Bhopal", 31, "manish.dube@gmail.com", 9876501234L, "Male"));
-        list.add(new UserEntity("Ritu", "Kapoor", "Amritsar", 29, "ritu.kapoor@gmail.com", 9012678910L, "Female"));
-        list.add(new UserEntity("Nikhil", "Naik", "Goa", 27, "nikhil.naik@gmail.com", 9876987654L, "Male"));
-        list.add(new UserEntity("Kavya", "Menon", "Kochi", 23, "kavya.menon@gmail.com", 9012340000L, "Female"));
-        list.add(new UserEntity("Rahul", "Das", "Guwahati", 34, "rahul.das@gmail.com", 9988665544L, "Male"));
-        list.add(new UserEntity("Shruti", "Roy", "Agartala", 26, "shruti.roy@gmail.com", 9876000011L, "Female"));
-        list.add(new UserEntity("Yash", "Thakur", "Jaipur", 28, "yash.thakur@gmail.com", 9011002200L, "Male"));
-        list.add(new UserEntity("Meera", "Nair", "Trivandrum", 25, "meera.nair@gmail.com", 9766001122L, "Female"));
+//        list.add(new UserEntity("Suraj", "Bhat", "Srinagar", 33, "suraj.bhat@gmail.com", 9876123450L, "Male"));
+//        list.add(new UserEntity("Anjali", "Desai", "Surat", 22, "anjali.desai@gmail.com", 9876109876L, "Female"));
+//        list.add(new UserEntity("Manish", "Dube", "Bhopal", 31, "manish.dube@gmail.com", 9876501234L, "Male"));
+//        list.add(new UserEntity("Ritu", "Kapoor", "Amritsar", 29, "ritu.kapoor@gmail.com", 9012678910L, "Female"));
+//        list.add(new UserEntity("Nikhil", "Naik", "Goa", 27, "nikhil.naik@gmail.com", 9876987654L, "Male"));
+//        list.add(new UserEntity("Kavya", "Menon", "Kochi", 23, "kavya.menon@gmail.com", 9012340000L, "Female"));
+//        list.add(new UserEntity("Rahul", "Das", "Guwahati", 34, "rahul.das@gmail.com", 9988665544L, "Male"));
+//        list.add(new UserEntity("Shruti", "Roy", "Agartala", 26, "shruti.roy@gmail.com", 9876000011L, "Female"));
+//        list.add(new UserEntity("Yash", "Thakur", "Jaipur", 28, "yash.thakur@gmail.com", 9011002200L, "Male"));
+//        list.add(new UserEntity("Meera", "Nair", "Trivandrum", 25, "meera.nair@gmail.com", 9766001122L, "Female"));
 
        // System.out.println(list);
         UserService userService = new UserServiceImpl();
@@ -57,8 +57,10 @@ public class UserRunner {
 //        UserEntity list1 = userService.getByEmail("nikhil.naik@gmail.com");
 //        System.out.println(list1);
 
-        UserEntity list1 = userService.getByEmail("9766001122L");
-        System.out.println(list1);
+//        UserEntity list1 = userService.getByEmail("9766001122L");
+//        System.out.println(list1);
+//
+
 
   }
 }
