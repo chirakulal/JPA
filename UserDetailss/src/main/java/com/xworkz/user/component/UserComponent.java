@@ -1,12 +1,17 @@
 package com.xworkz.user.component;
 
 import com.xworkz.user.dto.UserDTO;
+import com.xworkz.user.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
 public class UserComponent {
+
+    @Autowired
+    private UserService userService;
 
     public UserComponent(){
         System.out.println("user Controller....");
@@ -21,6 +26,9 @@ public class UserComponent {
         System.out.println("mobile "+userDTO.getMobileNumber());
         System.out.println("age "+userDTO.getAge());
         System.out.println("gender "+userDTO.getGender());
+
+        userService.validateAndSave(userDTO);
+
 
         return "UserForm";
     }

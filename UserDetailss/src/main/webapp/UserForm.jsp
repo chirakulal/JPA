@@ -28,14 +28,15 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label" name="gender" >Gender</label>
-            <select class="form-select" required>
+            <label class="form-label" for="gender">Gender</label>
+            <select class="form-select" name="gender" id="gender" required>
                 <option value="" selected disabled>Select your gender</option>
-                <option value="male" >Male</option>
+                <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
             </select>
         </div>
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
