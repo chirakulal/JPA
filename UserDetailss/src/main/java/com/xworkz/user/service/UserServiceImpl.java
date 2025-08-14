@@ -6,11 +6,17 @@ import com.xworkz.user.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService{
 
     @Autowired
     private UserRepo userRepo;
+
+    public UserServiceImpl(){
+        System.out.println("Service is called...");
+    }
 
     @Override
     public boolean validateAndSave(UserDTO userDTO) {
@@ -23,10 +29,20 @@ public class UserServiceImpl implements UserService{
         user.setAge(userDTO.getAge());
         user.setGender(userDTO.getGender());
 
-        System.out.println(user.toString());
+        System.out.println(user);
         userRepo.validateAndSave(user);
 
 
         return false;
+    }
+
+    @Override
+    public List<UserEntity> getAllData() {
+        return userRepo.getAllData();
+    }
+
+    @Override
+    public UserEntity getById(int id) {
+        return userRepo.getById(id);
     }
 }

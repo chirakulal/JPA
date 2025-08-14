@@ -20,7 +20,7 @@
         </div>
         <div class="mb-3">
             <label for="mobile" class="form-label">Mobile Number</label>
-            <input type="tel" class="form-control" id="mobile" name="mobile" placeholder="Enter your mobile number" pattern="[0-9]{10}" required>
+            <input type="number" class="form-control" id="mobile" name="mobileNumber" placeholder="Enter your mobile number" pattern="[0-9]{10}" required>
         </div>
         <div class="mb-3">
             <label for="age" class="form-label">Age</label>
