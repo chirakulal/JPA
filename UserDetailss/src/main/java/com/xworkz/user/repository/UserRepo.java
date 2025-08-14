@@ -12,4 +12,8 @@ public interface UserRepo {
     List<UserEntity> getAllData();
 
     UserEntity getById(int id);
+
+    boolean UpdateById(int id, String name);
 }
+
+

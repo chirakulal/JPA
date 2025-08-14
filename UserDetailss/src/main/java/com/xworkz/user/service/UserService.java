@@ -12,4 +12,6 @@ public interface UserService {
     List<UserEntity> getAllData();
 
     UserEntity getById(int id);
+
+    String UpdateById(int id, String name);
 }

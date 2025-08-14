@@ -50,12 +50,24 @@ public class UserComponent {
     @RequestMapping("/getId")
     public ModelAndView getById(ModelAndView modelAndView,int id){
 
-        System.out.println(id);
       UserEntity user =  userService.getById(id);
 
+        System.out.println(user);
       modelAndView.addObject("dto",user);
       modelAndView.setViewName("GetById");
 
       return modelAndView;
+    }
+
+
+    @RequestMapping("/updateUser")
+    public ModelAndView UpdateById(ModelAndView modelAndView,int id,String name){
+           String result = userService.UpdateById(id,name);
+
+           modelAndView.addObject("result",result);
+
+           modelAndView.setViewName("UpdateById");
+
+             return  modelAndView;
     }
 }

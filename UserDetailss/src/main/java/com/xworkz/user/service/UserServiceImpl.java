@@ -45,4 +45,14 @@ public class UserServiceImpl implements UserService{
     public UserEntity getById(int id) {
         return userRepo.getById(id);
     }
+
+    @Override
+    public String UpdateById(int id, String name) {
+           boolean b=  userRepo.UpdateById(id,name);
+           if(b){
+               return "Update is SuccessFull";
+           }else return "Not SuccessFull";
+
+
+    }
 }

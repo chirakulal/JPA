@@ -106,4 +106,33 @@ public class UserRepoImpl implements UserRepo{
 
         return user;
     }
+
+    @Override
+    public boolean UpdateById(int id, String name) {
+        EntityManager entityManager =null;
+        EntityTransaction entityTransaction=null;
+
+        try {
+            entityManager=entityManagerFactory.createEntityManager();
+            entityTransaction=entityManager.getTransaction();
+
+            entityTransaction.begin();
+          UserEntity user=  entityManager.find(UserEntity.class,id);
+          user.setName(name);
+          entityManager.merge(user);
+
+          entityTransaction.commit();
+
+          return true;
+
+        }catch (Exception e){
+            if(entityTransaction.isActive()){
+                entityTransaction.rollback();
+            }
+        }finally {
+            entityManager.close();
+        }
+
+        return false;
+    }
 }
