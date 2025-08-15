@@ -11,6 +11,7 @@ import javax.persistence.*;
 
 @NamedQuery(name = "getAllData",query = "Select entity from UserEntity entity")
 @NamedQuery(name = "getById",query = "Select entity from UserEntity entity where id=:idBy")
+@NamedQuery(name = "getEmailWithPattern", query = "Select email.entity from UserEntity entity where email.entity like %@gmail.com")
 public class UserEntity {
 
     @Id

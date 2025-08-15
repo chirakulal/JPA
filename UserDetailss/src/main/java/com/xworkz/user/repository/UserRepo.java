@@ -14,6 +14,10 @@ public interface UserRepo {
     UserEntity getById(int id);
 
     boolean UpdateById(int id, String name);
+
+    boolean DeletedById(int id);
+
+    List<String>  getEmailWithPattern();
 }
 
 

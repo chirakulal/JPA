@@ -135,4 +135,61 @@ public class UserRepoImpl implements UserRepo{
 
         return false;
     }
+
+    @Override
+    public boolean DeletedById(int id) {
+        EntityManager entityManager =null;
+        EntityTransaction entityTransaction=null;
+
+        try{
+            entityManager=entityManagerFactory.createEntityManager();
+            entityTransaction=entityManager.getTransaction();
+
+            entityTransaction.begin();
+
+       UserEntity user=     entityManager.find(UserEntity.class,id);
+          entityManager.remove(user);
+          entityTransaction.commit();
+          return true;
+
+        }catch (Exception e){
+            if(entityTransaction.isActive()){
+                entityTransaction.rollback();
+            }
+        }finally {
+            entityManager.close();
+        }
+
+
+        return false;
+    }
+
+    @Override
+    public List<String> getEmailWithPattern() {
+        EntityManager entityManager=null;
+        EntityTransaction entityTransaction=null;
+        List<String> email =null;
+
+        try {
+            entityManager=entityManagerFactory.createEntityManager();
+            entityTransaction=entityManager.getTransaction();
+
+            entityTransaction.begin();
+
+           Query query = entityManager.createNamedQuery("getEmailWithPattern");
+         email =   query.getResultList();
+
+         entityTransaction.commit();
+
+
+        }catch (Exception e){
+            if(entityTransaction.isActive()){
+                entityTransaction.rollback();
+            }
+        }finally {
+            entityManager.close();
+        }
+
+        return email;
+    }
 }

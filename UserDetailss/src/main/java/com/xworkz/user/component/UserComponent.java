@@ -70,4 +70,27 @@ public class UserComponent {
 
              return  modelAndView;
     }
+
+    @RequestMapping("deleteUser")
+    public ModelAndView DeletedById(ModelAndView modelAndView,int id){
+        String result = userService.DeletedById(id);
+
+        modelAndView.addObject("result",result);
+
+        modelAndView.setViewName("DeleteById");
+        return modelAndView;
+    }
+
+
+@RequestMapping("getEmailWithPattern")
+    public ModelAndView getEmailWithPattern(ModelAndView modelAndView){
+      List<String> userEntities=  userService.getEmailWithPattern();
+
+    System.out.println(userEntities);
+
+      modelAndView.addObject("dto",userEntities);
+
+      modelAndView.setViewName("GetEmailWithPattern");
+      return modelAndView;
+    }
 }

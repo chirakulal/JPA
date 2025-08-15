@@ -55,4 +55,20 @@ public class UserServiceImpl implements UserService{
 
 
     }
+
+    @Override
+    public String DeletedById(int id) {
+       Boolean b = userRepo.DeletedById(id);
+       if(b){
+           return "Delete is SuccessFull";
+       }else return "Delete is Unsuccessfully";
+
+    }
+
+    @Override
+    public List<String> getEmailWithPattern() {
+
+
+        return userRepo.getEmailWithPattern();
+    }
 }

@@ -11,6 +11,8 @@
 <a href="getAll">Get All Data</a>
 <a href="GetById.jsp">Get By Id</a>
 <a href="UpdateById.jsp">Update By Id</a>
+<a href="DeleteById.jsp">Delete By Id</a>
+<a href="getEmailWithPattern">Get Email with Pattern</a>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 </body>
 </html>

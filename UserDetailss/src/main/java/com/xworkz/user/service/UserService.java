@@ -14,4 +14,8 @@ public interface UserService {
     UserEntity getById(int id);
 
     String UpdateById(int id, String name);
+
+    String DeletedById(int id);
+
+   List<String> getEmailWithPattern();
 }
