@@ -4,6 +4,7 @@ import com.xworkz.user.entity.UserEntity;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class UserRepoImpl implements UserRepo{
     }
 
 
-    EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("user");
+    EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("users");
 
 
     @Override
@@ -191,5 +192,82 @@ public class UserRepoImpl implements UserRepo{
         }
 
         return email;
+    }
+
+    @Override
+    public UserEntity getNameAndEmailByPhone(long mobileNumber) {
+
+        System.out.println(mobileNumber);
+
+        EntityManager entityManager = null;
+        EntityTransaction entityTransaction = null;
+        UserEntity user = new UserEntity();
+
+        try{
+            entityManager = entityManagerFactory.createEntityManager();
+            entityTransaction=entityManager.getTransaction();
+
+            entityTransaction.begin();
+
+          Query query =  entityManager.createNamedQuery("getNameAndEmailByPhone");
+          query.setParameter("mobileBy",mobileNumber);
+         Object[] objects =(Object[]) query.getSingleResult();
+
+        user.setName((String) objects[0]);
+          user.setEmail((String) objects[1]);
+
+
+
+          entityTransaction.commit();
+            System.out.println(user.getEmail());
+            System.out.println(user.getName());
+
+        }catch (Exception e){
+            if(entityTransaction.isActive()){
+                entityTransaction.rollback();
+            }
+        }finally {
+            entityManager.close();
+        }
+
+        return user;
+    }
+
+    @Override
+    public List<UserEntity> getNameEmailPhoneByAgeAbove() {
+        EntityManager entityManager=null;
+        EntityTransaction entityTransaction=null;
+        List<UserEntity> user = new ArrayList<>();
+
+        try {
+            entityManager = entityManagerFactory.createEntityManager();
+            entityTransaction=entityManager.getTransaction();
+
+            entityTransaction.begin();
+
+            Query query =  entityManager.createNamedQuery("getNameEmailPhoneByAgeAbove");
+           List<Object[]> objects = query.getResultList();
+           for (Object[] objects1: objects) {
+               UserEntity user1 = new UserEntity();
+               user1.setName((String) objects1[0]);
+               user1.setEmail((String) objects1[1]);
+               user1.setMobileNumber((Long) objects1[2]);
+
+               user.add(user1);
+           }
+
+
+            entityTransaction.commit();
+
+
+        }catch (Exception e){
+            if(entityTransaction.isActive()){
+                entityTransaction.rollback();
+            }
+        }finally {
+            entityManager.close();
+        }
+
+        return user;
     }
 }

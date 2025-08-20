@@ -93,4 +93,33 @@ public class UserComponent {
       modelAndView.setViewName("GetEmailWithPattern");
       return modelAndView;
     }
+
+
+    @RequestMapping("getByphone")
+    public ModelAndView getNameAndEmailByPhone(ModelAndView modelAndView,long mobileNumber){
+
+
+        System.out.println(mobileNumber);
+       UserEntity user = userService.getNameAndEmailByPhone(mobileNumber);
+
+        System.out.println(user.getName());
+        System.out.println(user.getEmail());
+
+       modelAndView.addObject("dto",user);
+
+       modelAndView.setViewName("GetNameAndEmailByPhone");
+
+        return modelAndView;
+    }
+    @RequestMapping("getNameEmailPhoneByAgeAbove")
+    public ModelAndView getNameEmailPhoneByAgeAbove(ModelAndView modelAndView){
+
+        List<UserEntity> user = userService.getNameEmailPhoneByAgeAbove();
+
+
+        modelAndView.addObject("dtoList",user);
+
+        modelAndView.setViewName("GetEmailNAmePhoneByAgeAbove");
+        return modelAndView;
+    }
 }

@@ -71,4 +71,16 @@ public class UserServiceImpl implements UserService{
 
         return userRepo.getEmailWithPattern();
     }
+
+    @Override
+    public UserEntity getNameAndEmailByPhone(long mobileNumber) {
+
+        return userRepo.getNameAndEmailByPhone(mobileNumber);
+    }
+
+    @Override
+    public List<UserEntity> getNameEmailPhoneByAgeAbove() {
+
+        return userRepo.getNameEmailPhoneByAgeAbove();
+    }
 }

@@ -18,6 +18,10 @@ public interface UserRepo {
     boolean DeletedById(int id);
 
     List<String>  getEmailWithPattern();
+
+    UserEntity getNameAndEmailByPhone(long mobileNumber);
+
+    List<UserEntity> getNameEmailPhoneByAgeAbove();
 }
 
 

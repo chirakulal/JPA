@@ -18,4 +18,8 @@ public interface UserService {
     String DeletedById(int id);
 
    List<String> getEmailWithPattern();
+
+   UserEntity getNameAndEmailByPhone(long mobileNumber);
+
+    List<UserEntity>getNameEmailPhoneByAgeAbove();
 }

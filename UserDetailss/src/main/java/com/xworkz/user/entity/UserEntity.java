@@ -11,7 +11,10 @@ import javax.persistence.*;
 
 @NamedQuery(name = "getAllData",query = "Select entity from UserEntity entity")
 @NamedQuery(name = "getById",query = "Select entity from UserEntity entity where id=:idBy")
-@NamedQuery(name = "getEmailWithPattern", query = "Select email.entity from UserEntity entity where email.entity like %@gmail.com")
+@NamedQuery(name = "getEmailWithPattern", query = "Select entity.email from UserEntity entity where entity.email like '%@gmail.com' ")
+@NamedQuery(name = "getNameAndEmailByPhone", query="Select entity.name, entity.email from UserEntity entity where entity.mobileNumber = :mobileBy")
+@NamedQuery(name = "getNameEmailPhoneByAgeAbove", query = "Select entity.name, entity.email, entity.mobileNumber from UserEntity entity where entity.age>25 ")
+
 public class UserEntity {
 
     @Id
